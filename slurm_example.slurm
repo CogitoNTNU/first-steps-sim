@@ -9,7 +9,7 @@
 #SBATCH --constraint="(a100|h100|h200)&(gpu40g|gpu80g)"
 #SBATCH --output=slurm_outputs/ksim_output.txt
 #SBATCH --error=slurm_outputs/ksim_error.txt
-#SBATCH --mail-user=email@ntnu.no
+#SBATCH --mail-user=volodymt@stud.ntnu.no
 #SBATCH --mail-type=ALL
 
 WORKDIR=${SLURM_SUBMIT_DIR}
