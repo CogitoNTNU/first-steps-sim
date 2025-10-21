@@ -1322,13 +1322,23 @@ class ZbotWalkingTask(ksim.PPOTask[ZbotWalkingTaskConfig]):
 
     def get_mujoco_model(self) -> mujoco.MjModel:
         # Try to load your custom robot first
+        # Try MJCF format first
         try:
-            print("Attempting to load custom robot URDF...")
-            model = mujoco.MjModel.from_xml_path("/home/pathofseb/coding/zbot-policy-walking/robot/robot.urdf")
-            print(f"Custom robot loaded successfully! Bodies: {model.nbody}, Joints: {model.njnt}")
+            print("Attempting to load custom robot MJCF...")
+            model = mujoco.MjModel.from_xml_path("models/robot.mjcf")
+            print(f"Custom robot MJCF loaded successfully! Bodies: {model.nbody}, Joints: {model.njnt}")
             return model
         except Exception as e:
-            print(f"Failed to load custom robot: {e}")
+            print(f"Failed to load MJCF: {e}")
+        
+        # Try URDF format
+        try:
+            print("Attempting to load custom robot URDF...")
+            model = mujoco.MjModel.from_xml_path("models/robot.urdf")
+            print(f"Custom robot URDF loaded successfully! Bodies: {model.nbody}, Joints: {model.njnt}")
+            return model
+        except Exception as e:
+            print(f"Failed to load URDF: {e}")
             print("Falling back to default zbot model...")
 
         # Fallback to default zbot
