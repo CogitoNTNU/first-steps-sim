@@ -1,6 +1,6 @@
 #!/bin/sh
 #SBATCH --account=studiegrupper-cogito
-#SBATCH --job-name="first-steps-sim"
+#SBATCH --job-name="first-steps-sim-1"
 #SBATCH --time=06:00:00
 #SBATCH --partition=GPUQ
 #SBATCH --gres=gpu:1
@@ -9,7 +9,7 @@
 #SBATCH --constraint="(a100|h100|h200)&(gpu40g|gpu80g)"
 #SBATCH --output=slurm_outputs/ksim_output.txt
 #SBATCH --error=slurm_outputs/ksim_error.txt
-#SBATCH --mail-user=email@ntnu.no
+#SBATCH --mail-user=adriajl@stud.ntnu.no
 #SBATCH --mail-type=ALL
 
 WORKDIR=${SLURM_SUBMIT_DIR}
