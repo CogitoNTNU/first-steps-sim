@@ -36,6 +36,9 @@ python -m train max_steps=100
 ```bash
 tensorboard --logdir zbot_walking_task
 ```
+
+📖 **For detailed TensorBoard setup, SSH tunneling, and visualization tips, see [TENSORBOARD_GUIDE.md](TENSORBOARD_GUIDE.md)**
+
 8. To view your trained checkpoint in the interactive viewer:
 - Use the mouse to move the camera around
 - Hold `Ctrl` and double click to select a body on the robot, and then left or right click to apply forces to it.
@@ -60,6 +63,32 @@ kinfer-sim assets/model.kinfer kbot --start-height 0.32 --save-video video.mp4
 13. Write a message with a link to your repository on our [Discord](https://url.kscale.dev/discord) in the "【🧠】submissions" channel
 14. Wait for one of us to run it on the real robot - this should take about a day, but if we are dragging our feet, please message us on Discord
 15. Voila! Your name will now appear on our [leaderboard](https://url.kscale.dev/leaderboard)
+
+## Running on IDUN (NTNU HPC Cluster)
+
+For NTNU students: You can train on IDUN's GPU cluster for faster training!
+
+```bash
+# Quick start on IDUN
+ssh your-username@idun-login1.hpc.ntnu.no
+cd /cluster/work/$USER
+git clone <your-repo-url>
+cd first-steps-sim
+bash setup_idun.sh
+sbatch slurm_example.slurm
+```
+
+📖 See **[IDUN_GUIDE.md](IDUN_GUIDE.md)** for complete setup instructions, monitoring, and troubleshooting.
+
+## Making the Robot Wave 👋
+
+Want to make your robot wave? Check out the wave demo:
+
+```bash
+python wave_demo.py --mode simple
+```
+
+📖 See **[WAVING_GUIDE.md](WAVING_GUIDE.md)** for complete wave implementation and integration guide.
 
 ## Troubleshooting
 

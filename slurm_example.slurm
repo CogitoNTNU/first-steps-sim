@@ -1,7 +1,7 @@
 #!/bin/sh
 #SBATCH --account=studiegrupper-cogito
 #SBATCH --job-name="first-steps-sim"
-#SBATCH --time=06:00:00
+#SBATCH --time=24:00:00
 #SBATCH --partition=GPUQ
 #SBATCH --gres=gpu:1
 #SBATCH --mem=40GB
